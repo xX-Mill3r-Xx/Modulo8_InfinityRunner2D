@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     public Animator anim;
     public float speed;
     public float jump;
+    public float jetPack;
+
+    public GameObject bulletPrefab;
+    public Transform Fire_Point;
 
     void Start()
     {
@@ -18,11 +22,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         Jump();
+        Shoot();
+        JetPack();
     }
 
     private void FixedUpdate()
     {
         Move();
+        
     }
 
     void Move()
@@ -40,11 +47,29 @@ public class Player : MonoBehaviour
         }
     }
 
+    void JetPack()
+    {
+        if (Input.GetButtonDown("Fire2") && !isJumping)
+        {
+            anim.SetBool("jetpack", true);
+            rig.AddForce(Vector2.up * jetPack, ForceMode2D.Impulse);
+        }
+    }
+
+    void Shoot()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            Instantiate(bulletPrefab, Fire_Point.transform.position, Fire_Point.transform.rotation);
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == 8)
         {
             anim.SetBool("Jumping", false);
+            anim.SetBool("jetpack", false);
             isJumping = false;
         }
     }
