@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody2D rig;
+    private Rigidbody2D rig;
+    private bool isJumping;
     public Animator anim;
     public float speed;
     public float jump;
@@ -12,7 +13,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -27,16 +27,25 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        //anim.SetInteger("transicao", 3);
         rig.velocity = new Vector2(speed, rig.velocity.y);
     }
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !isJumping)
         {
-            //anim.SetInteger("transicao", 2);
+            anim.SetBool("Jumping", true);
             rig.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
+            isJumping = true;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 8)
+        {
+            anim.SetBool("Jumping", false);
+            isJumping = false;
         }
     }
 }
