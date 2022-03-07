@@ -17,7 +17,7 @@ public class SpawnPlataforms : MonoBehaviour
 
         for(int i = 0; i < plataforms.Count; i++)
         {
-            Transform p = Instantiate(plataforms[i], new Vector2(i * 30f, -5f), transform.rotation).transform;
+            Transform p = Instantiate(plataforms[i], new Vector2(i * 30f, -4.5f), transform.rotation).transform;
             currentPlataforms.Add(p);
             offSet += 30f;
         }
@@ -49,7 +49,7 @@ public class SpawnPlataforms : MonoBehaviour
 
     public void Recycle(GameObject plataform)
     {
-        plataform.transform.position = new Vector2(offSet, 0);
+        plataform.transform.position = new Vector2(offSet, -4.5f);
         offSet += 30f;
     }
 }

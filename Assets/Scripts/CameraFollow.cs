@@ -13,8 +13,9 @@ public class CameraFollow : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Update()
+    void LateUpdate()
     {
+        //LateUpdate é chamado mais suave que o Updade;
         Vector3 newCamPos = new Vector3(player.position.x + offSet, 0f, transform.position.z);
         transform.position = Vector3.Slerp(transform.position, newCamPos, camSpeed * Time.deltaTime);
     }
