@@ -136,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xAxis: -7
   yAxis: 7
+  damage: 5

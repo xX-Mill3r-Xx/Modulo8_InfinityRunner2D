@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public int health;
+
     private Rigidbody2D rig;
     private bool isJumping;
     public Animator anim;
@@ -12,7 +14,9 @@ public class Player : MonoBehaviour
     public float jetPack;
 
     public GameObject bulletPrefab;
+    public GameObject jetPackFX;
     public Transform Fire_Point;
+    public Transform Smoke_jetPackFX;
 
     void Start()
     {
@@ -29,7 +33,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        
     }
 
     void Move()
@@ -37,7 +40,7 @@ public class Player : MonoBehaviour
         rig.velocity = new Vector2(speed, rig.velocity.y);
     }
 
-    void Jump()
+    public void Jump()
     {
         if (Input.GetButtonDown("Jump") && !isJumping)
         {
@@ -47,20 +50,30 @@ public class Player : MonoBehaviour
         }
     }
 
-    void JetPack()
+    public void JetPack()
     {
         if (Input.GetButtonDown("Fire2") && !isJumping)
         {
-            anim.SetBool("jetpack", true);
             rig.AddForce(Vector2.up * jetPack, ForceMode2D.Impulse);
+            anim.SetBool("jetpack", true);
+            Instantiate(jetPackFX, Smoke_jetPackFX.transform.position, Smoke_jetPackFX.transform.rotation);
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         if (Input.GetButton("Fire1"))
         {
             Instantiate(bulletPrefab, Fire_Point.transform.position, Fire_Point.transform.rotation);
+        }
+    }
+
+    public void OnHit(int dmg)
+    {
+        health -= dmg;
+        if(health <= 0)
+        {
+            GameController.instance.ShowGameOver();
         }
     }
 
