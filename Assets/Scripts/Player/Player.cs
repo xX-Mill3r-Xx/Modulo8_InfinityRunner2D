@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
 
     public void JetPack()
     {
-        if (Input.GetButtonDown("Fire2") && !isJumping)
+        if (Input.GetButtonDown("Fire2") && isJumping)
         {
             rig.AddForce(Vector2.up * jetPack, ForceMode2D.Impulse);
             anim.SetBool("jetpack", true);
