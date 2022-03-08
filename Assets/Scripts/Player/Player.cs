@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int health;
+    //public int health;
 
     private Rigidbody2D rig;
     private bool isJumping;
@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public float jump;
     public float jetPack;
 
+    public PlayerLife life;
     public GameObject bulletPrefab;
     public GameObject jetPackFX;
     public Transform Fire_Point;
@@ -72,8 +73,9 @@ public class Player : MonoBehaviour
 
     public void OnHit(int dmg)
     {
-        health -= dmg;
-        if(health <= 0)
+        life.health -= dmg;
+        life.heartsCount = life.health;
+        if(life.health <= 0)
         {
             GameController.instance.ShowGameOver();
         }

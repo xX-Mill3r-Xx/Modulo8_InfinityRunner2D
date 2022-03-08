@@ -7,7 +7,7 @@ public class FlyEnemy : Enemy
     private Rigidbody2D rig;
     private Player player;
     public float speed;
-
+    
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();

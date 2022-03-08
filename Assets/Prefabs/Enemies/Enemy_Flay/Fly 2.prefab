@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  damage: 4
+  damage: 1
   speed: 6
 --- !u!95 &7456100925705535179
 Animator:
