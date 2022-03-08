@@ -12,7 +12,7 @@ public class FlyEnemy : Enemy
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         rig = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, 5);
+        Destroy(gameObject,5);
     }
 
     private void FixedUpdate()

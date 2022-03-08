@@ -56,7 +56,9 @@ public class Player : MonoBehaviour
         {
             rig.AddForce(Vector2.up * jetPack, ForceMode2D.Impulse);
             anim.SetBool("jetpack", true);
-            Instantiate(jetPackFX, Smoke_jetPackFX.transform.position, Smoke_jetPackFX.transform.rotation);
+            GameObject e = Instantiate(jetPackFX, Smoke_jetPackFX.transform.position, Smoke_jetPackFX.transform.rotation);
+            Destroy(e, 0.29f);
+
         }
     }
 

@@ -1672,7 +1672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4385cd27cfe54194a9406eb3e7a47a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 50
   anim: {fileID: 1448793784}
   speed: 7
   jump: 10

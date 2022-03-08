@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 763c5faa688248443b6232e4a89e4c58, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddb1414453236e43aeb95ea5989c992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  damage: 2
-  speed: 6
+  health: 4
+  damage: 6
+  speed: 7
 --- !u!95 &5502316511881628218
 Animator:
   serializedVersion: 3
