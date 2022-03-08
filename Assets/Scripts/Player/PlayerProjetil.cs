@@ -24,6 +24,7 @@ public class PlayerProjetil : MonoBehaviour
     {
         GameObject e = Instantiate(expPrefab, transform.position, transform.rotation);
         Destroy(e,0.29f);
+        Destroy(gameObject); //This Line <=
     }
 
     void OnTriggerEnter2D(Collider2D collision)
