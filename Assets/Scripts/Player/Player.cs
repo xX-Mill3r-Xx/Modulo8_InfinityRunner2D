@@ -88,4 +88,14 @@ public class Player : MonoBehaviour
             isJumping = false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Coin"))
+        {
+            collision.GetComponent<Animator>().SetTrigger("hit");
+            GameControllerUI.instance.GetCoin();
+            Destroy(collision.gameObject, 0.29f);
+        }
+    }
 }
