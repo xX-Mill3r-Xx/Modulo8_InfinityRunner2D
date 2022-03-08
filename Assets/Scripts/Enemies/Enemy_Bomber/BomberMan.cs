@@ -6,6 +6,7 @@ public class BomberMan : Enemy
 {
     public GameObject bombPrefab;
     public Transform fire_Point;
+    private Player player;
     public float throwTime;
     private float throwCount;
 
@@ -22,6 +23,21 @@ public class BomberMan : Enemy
         {
             Instantiate(bombPrefab,fire_Point.position, fire_Point.rotation);
             throwCount = 0f;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            player.OnHit(damage);
+        }
+
+        if (other.CompareTag("Bullet"))
+        {
+            int dmg = other.GetComponent<PlayerProjetil>().damage;
+            other.GetComponent<PlayerProjetil>().OnHit();
+            ApplyDamage(dmg);
         }
     }
 }

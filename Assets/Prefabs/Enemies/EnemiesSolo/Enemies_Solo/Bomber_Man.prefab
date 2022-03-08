@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 528100625272017451}
   - component: {fileID: 528100625272017452}
   - component: {fileID: 528100625272017449}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bomber_Man
   m_TagString: Bullet
   m_Icon: {fileID: 0}

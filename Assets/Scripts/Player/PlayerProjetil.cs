@@ -24,12 +24,20 @@ public class PlayerProjetil : MonoBehaviour
     {
         GameObject e = Instantiate(expPrefab, transform.position, transform.rotation);
         Destroy(e,0.29f);
-        Destroy(gameObject); //This Line <=
+        if (gameObject.CompareTag("Bullet"))
+        {
+            Destroy(gameObject); //This Line <=
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 8 && collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == 8)
+        {
+            OnHit();
+        }
+
+        if(collision.gameObject.layer == 6)
         {
             OnHit();
         }

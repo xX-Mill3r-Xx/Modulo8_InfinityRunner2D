@@ -20,11 +20,26 @@ public class FlyEnemy : Enemy
         rig.velocity = Vector2.left * speed;
     }
 
-    protected override void OnTriggerEnter2D(Collider2D collision)
+    //protected override void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Player"))
+    //    {
+    //        player.OnHit(damage);
+    //    }
+    //}
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             player.OnHit(damage);
+        }
+
+        if (other.CompareTag("Bullet"))
+        {
+            int dmg = other.GetComponent<PlayerProjetil>().damage;
+            other.GetComponent<PlayerProjetil>().OnHit();
+            ApplyDamage(dmg);
         }
     }
 }
