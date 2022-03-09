@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerProjetil : MonoBehaviour
 {
     private Rigidbody2D rig;
+
+    private bool explosionSfx;
+
     public float speed;
     public GameObject expPrefab;
     public int damage;
@@ -42,5 +45,12 @@ public class PlayerProjetil : MonoBehaviour
             OnHit();
             GameControllerUI.instance.GetPoints();
         }
+
+        if (collision.gameObject.layer == 6 && !explosionSfx)
+        {
+            explosionSfx = true;
+            AudioController.current.PlayMusic(AudioController.current.explosionBullet);
+        }
+        explosionSfx = false;
     }
 }

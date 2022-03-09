@@ -1145,7 +1145,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 73
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1235,8 +1235,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db52a7973b566f4b97df94f138429eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
+  Gunsfx: {fileID: 8300000, guid: ad2915ff5068e9c47979b1ef618188d1, type: 3}
+  jumpSfx: {fileID: 8300000, guid: b390d9cb6e6f09d4999b367076dd43bd, type: 3}
+  coinSfx: {fileID: 8300000, guid: 27098b422a95571478b3d07535e85012, type: 3}
   bulletSfx: {fileID: 0}
+  explosionBullet: {fileID: 8300000, guid: 74ac9f8c88d51004dab726d6f59708de, type: 3}
+  hitSfx: {fileID: 0}
+  jetPacSfx: {fileID: 8300000, guid: b3d41c2eafc35b442ad1aa78e1219274, type: 3}
   BGM: {fileID: 0}
 --- !u!1 &520280945
 GameObject:

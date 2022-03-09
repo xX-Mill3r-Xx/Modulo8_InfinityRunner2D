@@ -8,6 +8,13 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rig;
     private bool isJumping;
+
+    private bool jumpSfx;
+    private bool pacSfx;
+    private bool shotSfx;
+    private bool coinSfx;
+    private bool explosionSfx;
+
     public Animator anim;
     public float speed;
     public float jump;
@@ -44,12 +51,20 @@ public class Player : MonoBehaviour
     public void Jump()
     {
         if (Input.GetButtonDown("Jump") && !isJumping)
-        {
+        { 
             anim.SetBool("Jumping", true);
             rig.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
             isJumping = true;
         }
+
+        if (Input.GetButtonDown("Jump") && !jumpSfx)
+        {
+            jumpSfx = true;
+            AudioController.current.PlayMusic(AudioController.current.jumpSfx);
+        }
+        jumpSfx = false;
     }
+
 
     public void JetPack()
     {
@@ -59,8 +74,14 @@ public class Player : MonoBehaviour
             anim.SetBool("jetpack", true);
             GameObject e = Instantiate(jetPackFX, Smoke_jetPackFX.transform.position, Smoke_jetPackFX.transform.rotation);
             Destroy(e, 0.29f);
-
         }
+
+        if (Input.GetButtonDown("Fire2") && !pacSfx)
+        {
+            pacSfx = true;
+            AudioController.current.PlayMusic(AudioController.current.jetPacSfx);
+        }
+        pacSfx = false;
     }
 
     public void Shoot()
@@ -70,7 +91,12 @@ public class Player : MonoBehaviour
             Instantiate(bulletPrefab, Fire_Point.transform.position, Fire_Point.transform.rotation);
         }
 
-        //AudioController.current.PlayMusic(AudioController.current.sfx);
+        if (Input.GetButtonDown("Fire1") && !shotSfx)
+        {
+            shotSfx = true;
+            AudioController.current.PlayMusic(AudioController.current.Gunsfx);
+        }
+        shotSfx = false;
     }
 
     public void OnHit(int dmg)
@@ -117,6 +143,20 @@ public class Player : MonoBehaviour
             collision.GetComponent<Animator>().SetTrigger("hit");
             GameControllerUI.instance.GetCoin();
             Destroy(collision.gameObject, 0.29f);
+
+            if (collision.gameObject.CompareTag("Coin") && !coinSfx)
+            {
+                coinSfx = true;
+                AudioController.current.PlayMusic(AudioController.current.coinSfx);
+            }
+            coinSfx = false;
         }
+
+        if (collision.gameObject.layer == 6 && !explosionSfx)
+        {
+            explosionSfx = true;
+            AudioController.current.PlayMusic(AudioController.current.explosionBullet);
+        }
+        explosionSfx = false;
     }
 }
