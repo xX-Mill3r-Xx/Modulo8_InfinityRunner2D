@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class SpawnCoins : MonoBehaviour
 {
-    public List<GameObject> coinsPrefab = new List<GameObject>();
     private float timer;
     public float spawnTimer;
+    public List<GameObject> coinsPrefab = new List<GameObject>();
 
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;

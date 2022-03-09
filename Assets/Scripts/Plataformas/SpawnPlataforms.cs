@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class SpawnPlataforms : MonoBehaviour
 {
-    public List<GameObject> plataforms = new List<GameObject>();
     private List<Transform> currentPlataforms = new List<Transform>();
     private Transform player;
     private Transform currentPlataformPoint;
     private int PlataformIndex;
+
+    public List<GameObject> plataforms = new List<GameObject>();
     public float offSet;
 
     void Start()

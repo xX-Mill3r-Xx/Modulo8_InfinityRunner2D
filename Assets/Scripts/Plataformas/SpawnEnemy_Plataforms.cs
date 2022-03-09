@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class SpawnEnemy_Plataforms : MonoBehaviour
 {
+    private GameObject currentEnemy;
 
     public GameObject enemyPrefab;
-    private GameObject currentEnemy;
     public List<Transform> points = new List<Transform>();
 
     void Start()
     {
         CreateEnemy();
-    }
-
-    void Update()
-    {
-        
     }
 
     public void SpawnEnemyCreate()

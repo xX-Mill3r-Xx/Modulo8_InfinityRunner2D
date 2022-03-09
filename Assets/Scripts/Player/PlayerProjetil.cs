@@ -8,8 +8,8 @@ public class PlayerProjetil : MonoBehaviour
 
     private bool explosionSfx;
 
-    public float speed;
     public GameObject expPrefab;
+    public float speed;
     public int damage;
 
     void Start()
@@ -29,7 +29,7 @@ public class PlayerProjetil : MonoBehaviour
         Destroy(e,0.29f);
         if (gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject); //This Line <=
+            Destroy(gameObject);
         }
     }
 

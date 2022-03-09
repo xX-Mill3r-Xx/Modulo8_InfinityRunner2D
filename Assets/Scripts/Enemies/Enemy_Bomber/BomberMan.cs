@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class BomberMan : Enemy
 {
+    private Player player;
+
+    private float throwCount;
     public GameObject bombPrefab;
     public Transform fire_Point;
-    private Player player;
     public float throwTime;
-    private float throwCount;
 
     void Start()
     {
-       
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        Destroy(gameObject, 30);
     }
 
     void Update()
@@ -26,6 +28,7 @@ public class BomberMan : Enemy
         }
     }
 
+    #region player.OnHit()
     //private void OnTriggerEnter2D(Collider2D other)
     //{
     //    if (other.CompareTag("Player"))
@@ -40,4 +43,5 @@ public class BomberMan : Enemy
     //        ApplyDamage(dmg);
     //    }
     //}
+    #endregion
 }

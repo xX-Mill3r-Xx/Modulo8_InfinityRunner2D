@@ -6,6 +6,7 @@ public class FlyEnemy : Enemy
 {
     private Rigidbody2D rig;
     private Player player;
+
     public float speed;
     
     void Start()
@@ -20,6 +21,7 @@ public class FlyEnemy : Enemy
         rig.velocity = Vector2.left * speed;
     }
 
+    #region Player.OnHit()
     //protected override void OnTriggerEnter2D(Collider2D collision)
     //{
     //    if (collision.CompareTag("Player"))
@@ -27,6 +29,7 @@ public class FlyEnemy : Enemy
     //        player.OnHit(damage);
     //    }
     //}
+    #endregion
 
     private void OnTriggerEnter2D(Collider2D other)
     {

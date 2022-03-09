@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    //public int health;
+    IEnumerator HitFalse()
+    {
+        yield return new WaitForSeconds(0.33f);
+        anim.SetBool("hit", false);
+    }
 
     private Rigidbody2D rig;
-    private bool isJumping;
 
+    private bool isJumping;
     private bool jumpSfx;
     private bool pacSfx;
     private bool shotSfx;
     private bool coinSfx;
     private bool explosionSfx;
 
-    public Animator anim;
-    public float speed;
-    public float jump;
-    public float jetPack;
-
     public PlayerLife life;
     public GameObject bulletPrefab;
     public GameObject jetPackFX;
     public Transform Fire_Point;
     public Transform Smoke_jetPackFX;
+    public Animator anim;
+    public float speed;
+    public float jump;
+    public float jetPack;
 
     void Start()
     {
@@ -64,7 +67,6 @@ public class Player : MonoBehaviour
         }
         jumpSfx = false;
     }
-
 
     public void JetPack()
     {
@@ -108,12 +110,6 @@ public class Player : MonoBehaviour
         {
             GameController.instance.ShowGameOver();
         }
-    }
-
-    IEnumerator HitFalse()
-    {
-        yield return new WaitForSeconds(0.33f);
-        anim.SetBool("hit", false);
     }
 
     private void OnCollisionExit2D(Collision2D collision)

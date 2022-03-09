@@ -9,14 +9,11 @@ public class GameController : MonoBehaviour
     public GameObject gameOverPannel;
     public static GameController instance;
 
-
     void Start()
     {
         instance = this;
         Time.timeScale = 1f;
     }
-
-
 
     public void ShowGameOver()
     {

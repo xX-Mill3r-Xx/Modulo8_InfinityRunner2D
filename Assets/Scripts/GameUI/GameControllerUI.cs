@@ -7,13 +7,11 @@ public class GameControllerUI : MonoBehaviour
 {
     private PlayerLife player;
 
-    public int score;
-    public Text ScoreText;
-
-    public int scorePoints;
-    public Text TextPoints;
-
     public static GameControllerUI instance;
+    public Text ScoreText;
+    public Text TextPoints;
+    public int score;
+    public int scorePoints;
 
     private void Awake()
     {
@@ -31,5 +29,4 @@ public class GameControllerUI : MonoBehaviour
         scorePoints += 100;
         TextPoints.text = scorePoints.ToString();
     }
-
 }

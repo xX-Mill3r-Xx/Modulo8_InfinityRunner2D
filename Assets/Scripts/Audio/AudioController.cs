@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
+    private AudioSource audioSource;
+
     public AudioClip Gunsfx;
     public AudioClip jumpSfx;
     public AudioClip coinSfx;
@@ -11,11 +13,7 @@ public class AudioController : MonoBehaviour
     public AudioClip explosionBullet;
     public AudioClip hitSfx;
     public AudioClip jetPacSfx;
-
     public AudioClip BGM;
-
-    private AudioSource audioSource;
-
     public static AudioController current;
 
     void Start()
@@ -29,8 +27,10 @@ public class AudioController : MonoBehaviour
         audioSource.PlayOneShot(clip);
     }
 
+    #region ChangeBGM
     //public void ChangeBGM()
     //{
     //    audioSource.clip = sfx;
     //}
+    #endregion
 }

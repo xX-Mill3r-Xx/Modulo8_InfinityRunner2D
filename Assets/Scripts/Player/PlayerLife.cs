@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerLife : MonoBehaviour
 {
-    public int health = 3;
-    public int heartsCount;
     public Image[] hearts;
-
     public Sprite fullHeart;
     public Sprite empHeart;
+    public int health = 3;
+    public int heartsCount;
 
     void Update()
     {

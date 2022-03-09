@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class SpawnEnemyes : MonoBehaviour
 {
-    public List<GameObject> enemiesPrefab = new List<GameObject>();
     private float timer;
-    public float spawnTimer;
 
-    void Start()
-    {
-    }
+    public List<GameObject> enemiesPrefab = new List<GameObject>();
+    public float spawnTimer;
 
     void Update()
     {
