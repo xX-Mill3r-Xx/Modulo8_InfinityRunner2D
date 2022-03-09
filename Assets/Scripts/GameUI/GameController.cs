@@ -21,11 +21,11 @@ public class GameController : MonoBehaviour
     public void ShowGameOver()
     {
         gameOverPannel.SetActive(true);
-        Time.timeScale = 0.5f;
+        Time.timeScale = 0f;
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

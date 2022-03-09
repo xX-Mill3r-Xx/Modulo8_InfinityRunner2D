@@ -5,8 +5,14 @@ using UnityEngine.UI;
 
 public class GameControllerUI : MonoBehaviour
 {
+    private PlayerLife player;
+
     public int score;
     public Text ScoreText;
+
+    public int scorePoints;
+    public Text TextPoints;
+
     public static GameControllerUI instance;
 
     private void Awake()
@@ -18,6 +24,12 @@ public class GameControllerUI : MonoBehaviour
     {
         score++;
         ScoreText.text = "x " + score.ToString();
+    }
+
+    public void GetPoints()
+    {
+        scorePoints += 100;
+        TextPoints.text = scorePoints.ToString();
     }
 
 }

@@ -65,20 +65,34 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(bulletPrefab, Fire_Point.transform.position, Fire_Point.transform.rotation);
         }
+
+        //AudioController.current.PlayMusic(AudioController.current.sfx);
     }
 
     public void OnHit(int dmg)
     {
         life.health -= dmg;
+        anim.SetBool("hit", true);
         life.heartsCount = life.health;
         if(life.health <= 0)
         {
             GameController.instance.ShowGameOver();
         }
+    }
+
+    IEnumerator HitFalse()
+    {
+        yield return new WaitForSeconds(0.33f);
+        anim.SetBool("hit", false);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        StartCoroutine(HitFalse());
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -88,6 +102,11 @@ public class Player : MonoBehaviour
             anim.SetBool("Jumping", false);
             anim.SetBool("jetpack", false);
             isJumping = false;
+        }
+
+        if(collision.gameObject.layer == 6)
+        {
+            anim.SetBool("hit", true);
         }
     }
 

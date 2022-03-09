@@ -40,6 +40,7 @@ public class PlayerProjetil : MonoBehaviour
         if(collision.gameObject.layer == 6)
         {
             OnHit();
+            GameControllerUI.instance.GetPoints();
         }
     }
 }
