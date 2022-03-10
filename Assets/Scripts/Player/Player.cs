@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     public PlayerLife life;
     public GameObject bulletPrefab;
+    public GameObject torpedoPrefab;
     public GameObject jetPackFX;
     public Transform Fire_Point;
     public Transform Smoke_jetPackFX;
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        life.health = 200;
     }
 
     void Update()
@@ -89,9 +91,14 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             Instantiate(bulletPrefab, Fire_Point.transform.position, Fire_Point.transform.rotation);
+        }
+
+        if (Input.GetButtonDown("Fire3"))
+        {
+            Instantiate(torpedoPrefab, Fire_Point.transform.position, Fire_Point.transform.rotation);
         }
 
         if (Input.GetButtonDown("Fire1") && !shotSfx)
@@ -115,7 +122,7 @@ public class Player : MonoBehaviour
     {
         life.health -= dmg;
         anim.SetBool("hit", true);
-        life.heartsCount = life.health;
+        life.heartsCount = life.health / 50;
         if (life.health <= 0)
         {
             GameController.instance.ShowGameOver();

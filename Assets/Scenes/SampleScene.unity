@@ -3093,6 +3093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: {fileID: 2055581694}
   bulletPrefab: {fileID: 4518689803409118431, guid: 4b9d15dca35c093468656772b8b0d497, type: 3}
+  torpedoPrefab: {fileID: 4518689803409118431, guid: 51e444f7c01b3e841b198201bca3cfbd, type: 3}
   jetPackFX: {fileID: 502846646808312930, guid: 908edc490ab6382459aac4529e5f2ec4, type: 3}
   Fire_Point: {fileID: 1817939830}
   Smoke_jetPackFX: {fileID: 98766254}

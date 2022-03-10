@@ -15,7 +15,7 @@ public class PlayerProjetil : MonoBehaviour
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
     }
 
     private void FixedUpdate()

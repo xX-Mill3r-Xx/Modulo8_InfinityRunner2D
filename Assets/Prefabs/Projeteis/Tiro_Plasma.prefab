@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9a6306eacbdbe4f81f992e6139e10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
   expPrefab: {fileID: 1404470962309135273, guid: ceb71e3e07607804cb4453ba7904896f, type: 3}
-  damage: 3
+  speed: 30
+  damage: 1

@@ -8,7 +8,7 @@ public class PlayerLife : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite empHeart;
-    public int health = 3;
+    public int health;
     public int heartsCount;
 
     void Update()
