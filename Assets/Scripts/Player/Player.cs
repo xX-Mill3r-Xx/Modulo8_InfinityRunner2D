@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
         Jump();
         Shoot();
         JetPack();
+        PressStart();
     }
 
     private void FixedUpdate()
@@ -54,7 +55,7 @@ public class Player : MonoBehaviour
     public void Jump()
     {
         if (Input.GetButtonDown("Jump") && !isJumping)
-        { 
+        {
             anim.SetBool("Jumping", true);
             rig.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
             isJumping = true;
@@ -101,12 +102,21 @@ public class Player : MonoBehaviour
         shotSfx = false;
     }
 
+    public void PressStart()
+    {
+        if (Input.GetButtonDown("Submit"))
+        {
+            GameController.instance.PauseMenu();
+        }
+    }
+
+
     public void OnHit(int dmg)
     {
         life.health -= dmg;
         anim.SetBool("hit", true);
         life.heartsCount = life.health;
-        if(life.health <= 0)
+        if (life.health <= 0)
         {
             GameController.instance.ShowGameOver();
         }
@@ -119,14 +129,14 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 8)
         {
             anim.SetBool("Jumping", false);
             anim.SetBool("jetpack", false);
             isJumping = false;
         }
 
-        if(collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == 6)
         {
             anim.SetBool("hit", true);
         }
@@ -134,7 +144,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Coin"))
+        if (collision.gameObject.CompareTag("Coin"))
         {
             collision.GetComponent<Animator>().SetTrigger("hit");
             GameControllerUI.instance.GetCoin();
