@@ -165,6 +165,13 @@ public class Player : MonoBehaviour
             coinSfx = false;
         }
 
+        if (collision.gameObject.CompareTag("LifePac"))
+        {
+            life.health += 50;
+            life.heartsCount = life.health;
+            Destroy(collision.gameObject);
+        }
+
         if (collision.gameObject.layer == 6 && !explosionSfx)
         {
             explosionSfx = true;
