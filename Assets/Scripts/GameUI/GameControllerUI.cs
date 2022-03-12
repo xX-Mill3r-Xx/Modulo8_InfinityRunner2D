@@ -20,7 +20,7 @@ public class GameControllerUI : MonoBehaviour
         if(PlayerPrefs.GetInt("Moedas") > 0)
         {
             score += PlayerPrefs.GetInt("Moedas");
-            scoreText.text = "x " + score.ToString();
+            ScoreText.text = "x " + score.ToString();
         }
         
         if(PlayerPrefs.GetInt("Points") > 0)
